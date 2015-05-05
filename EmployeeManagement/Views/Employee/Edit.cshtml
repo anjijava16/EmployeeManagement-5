@@ -1,12 +1,13 @@
 ﻿@model EmployeeEducationInfo.Model.Employee
-
+<script src="~/JS/Employee/Edit.js"></script>
 @{
     ViewBag.Title = "Edit";
 }
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -40,11 +41,46 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.IsDel)
+            @Html.LabelFor(model => model.EducationInfo)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IsDel)
-            @Html.ValidationMessageFor(model => model.IsDel)
+            @if (Model.EducationInfo != null)
+            {
+                var EducationInfo = Model.EducationInfo.ToList();
+                for (int i = 0; i < EducationInfo.Count; i++)
+                {
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].StartTime)
+                                @Html.EditorFor(model => EducationInfo[i].StartTime)
+                                @Html.ValidationMessageFor(model => EducationInfo[i].StartTime)
+                            </td>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].EndTime)
+                                @Html.EditorFor(model => EducationInfo[i].EndTime)
+                                @Html.ValidationMessageFor(model => EducationInfo[i].EndTime)
+                            </td>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].Education)
+                                @Html.EditorFor(model => EducationInfo[i].Education)
+                                @Html.ValidationMessageFor(model => EducationInfo[i].Education)
+                            </td>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].IsDel)
+                                @Html.CheckBoxFor(model => EducationInfo[i].IsDel)
+                            </td>
+                        </tr>
+                    </table>
+                }
+            }
+        </div>
+
+        <div>
+            <p>
+                <input type="button" id="createEducationInfo" value="点击增加一条教育信息" />
+            </p>
+            <div id="EducationInfoShow"></div>
         </div>
 
         <p>

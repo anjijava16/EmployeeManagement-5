@@ -105,6 +105,7 @@ namespace EmployeeManagement.Controllers
             ViewBag.ClickCount = Request["index"].ToString();
             return PartialView("EducationInfoView");
         }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
