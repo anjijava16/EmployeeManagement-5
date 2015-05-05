@@ -1,0 +1,32 @@
+﻿@model EmployeeEducationInfo.Model.EducationInfo
+@{
+    var index = ViewBag.ClickCount;
+    System.Text.StringBuilder StartTimeName = new System.Text.StringBuilder("EducationInfo[");
+    StartTimeName.Append(index).Append("].StartTime");
+    System.Text.StringBuilder EndTimeName = new System.Text.StringBuilder("EducationInfo[");
+    EndTimeName.Append(index).Append("].EndTime");
+    System.Text.StringBuilder EducationName = new System.Text.StringBuilder("EducationInfo[");
+    EducationName.Append(index).Append("].Education");
+}
+<table>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.StartTime)
+            <input type="date" name="@StartTimeName" />
+            @*@Html.EditorFor(model => model.StartTime)*@
+            @Html.ValidationMessageFor(model => model.StartTime)
+        </td>
+        <td>
+            @Html.LabelFor(model => model.EndTime)
+            <input type="date" name="@EndTimeName" />
+            @*@Html.EditorFor(model => model.EndTime)*@
+            @Html.ValidationMessageFor(model => model.EndTime)
+        </td>
+        <td>
+            @Html.LabelFor(model => model.Education)
+            @*@Html.EditorFor(model => model.Education)*@
+            <input type="text" name="@EducationName" />
+            @Html.ValidationMessageFor(model => model.Education)
+        </td>
+    </tr>
+</table>
