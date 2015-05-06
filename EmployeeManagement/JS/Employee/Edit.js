@@ -20,7 +20,6 @@ $(function () {
     $("#deleteEducationInfo").click(function () {
         $("#EducationInfoShow ul:last-child").remove();
         clickCount--;
-        alert($("#EducationInfoShow").html().length);
         if ($("#EducationInfoShow").html().length < 500) {
             $("#deleteEducationInfo").attr("disabled", true);
         }
