@@ -43,19 +43,22 @@
                 {
                     foreach (var eduInfo in item.EducationInfo)
                     {
-                        <table>
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(edu => eduInfo.StartTime)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(edu => eduInfo.EndTime)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(edu => eduInfo.Education)
-                                </td>
-                            </tr>
-                        </table>
+                        if (eduInfo.IsDel == false)
+                        {
+                            <table>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(edu => eduInfo.StartTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(edu => eduInfo.EndTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(edu => eduInfo.Education)
+                                    </td>
+                                </tr>
+                            </table>
+                        }
                     }
                 }
             </td>

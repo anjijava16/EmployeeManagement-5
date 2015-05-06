@@ -76,7 +76,8 @@ namespace EmployeeManagement.Controllers
                     for (int i = 0; i < count; i++)
                     {
                         //judge if the education info exist or not
-                        var ret = db.EducationInfoSet.Where(e => e.Id == educationInfo[i].Id).SingleOrDefault();
+                        int uid = educationInfo[i].Id;
+                        var ret = db.EducationInfoSet.Where(e => e.Id == uid).SingleOrDefault();
                         if (ret != null)
                         {
                             //exist
@@ -91,7 +92,6 @@ namespace EmployeeManagement.Controllers
                             EducationInfo eduInfo = new EducationInfo();
                             eduInfo.EmployeeId = employee.Id;
                             eduInfo.IsDel = false;
-                            eduInfo.Employee = employee;
                             eduInfo.StartTime = educationInfo[i].StartTime;
                             eduInfo.EndTime = educationInfo[i].EndTime;
                             eduInfo.Education = educationInfo[i].Education;
