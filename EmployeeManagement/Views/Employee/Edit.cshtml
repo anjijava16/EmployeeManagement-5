@@ -47,6 +47,7 @@
             @if (Model.EducationInfo != null)
             {
                 var EducationInfo = Model.EducationInfo.ToList();
+                <input type="hidden" id="existEducationCount" value="@EducationInfo.Count" />
                 for (int i = 0; i < EducationInfo.Count; i++)
                 {
                     <table>
