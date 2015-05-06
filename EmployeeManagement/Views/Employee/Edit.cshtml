@@ -51,6 +51,7 @@
                 for (int i = 0; i < EducationInfo.Count; i++)
                 {
                     <table>
+                        @Html.HiddenFor(model => EducationInfo[i].Id)
                         <tr>
                             <td>
                                 @Html.LabelFor(model => EducationInfo[i].StartTime)

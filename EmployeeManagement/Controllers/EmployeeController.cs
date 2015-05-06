@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using EmployeeEducationInfo.Model;
 using EmployeeManagement.Models;
 using System.Data.Entity.Validation;
+using System.Data.Objects;
 
 namespace EmployeeManagement.Controllers
 {
@@ -64,7 +65,41 @@ namespace EmployeeManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                var employee4update = db.EmployeeSet.Where(e => e.Id == employee.Id).SingleOrDefault();
+                employee4update.Name = employee.Name;
+                employee4update.Age = employee.Age;
+                employee4update.Seniority = employee.Seniority;
+                if (employee.EducationInfo.Count > 0)
+                {
+                    var educationInfo = employee.EducationInfo.ToList();
+                    int count = educationInfo.Count;
+                    for (int i = 0; i < count; i++)
+                    {
+                        //judge if the education info exist or not
+                        var ret = db.EducationInfoSet.Where(e => e.Id == educationInfo[i].Id).SingleOrDefault();
+                        if (ret != null)
+                        {
+                            //exist
+                            ret.StartTime = educationInfo[i].StartTime;
+                            ret.EndTime = educationInfo[i].EndTime;
+                            ret.Education = educationInfo[i].Education;
+                            ret.IsDel = educationInfo[i].IsDel;
+                        }
+                        else
+                        {
+                            //need to add
+                            EducationInfo eduInfo = new EducationInfo();
+                            eduInfo.EmployeeId = employee.Id;
+                            eduInfo.IsDel = false;
+                            eduInfo.Employee = employee;
+                            eduInfo.StartTime = educationInfo[i].StartTime;
+                            eduInfo.EndTime = educationInfo[i].EndTime;
+                            eduInfo.Education = educationInfo[i].Education;
+                            db.EducationInfoSet.Add(eduInfo);
+                        }
+                    }
+                }
+                //db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
