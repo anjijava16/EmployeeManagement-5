@@ -13,4 +13,6 @@ $(function () {
             }
         });
     });
+    $('#deleteEducationInfo').click(function () {
+    });
 });

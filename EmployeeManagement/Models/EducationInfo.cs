@@ -12,6 +12,7 @@ namespace EmployeeEducationInfo.Model
         }
 
         [Required]
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [Display(Name = "开始日期")]

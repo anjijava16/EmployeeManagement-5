@@ -13,6 +13,7 @@ namespace EmployeeEducationInfo.Model
         }
 
         [Required]
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [Display(Name = "ÓÃ»§Ãû")]

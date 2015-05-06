@@ -50,33 +50,30 @@
                 <input type="hidden" id="existEducationCount" value="@EducationInfo.Count" />
                 for (int i = 0; i < EducationInfo.Count; i++)
                 {
-                    if (!EducationInfo[i].IsDel)
-                    {
-                        <table>
-                            @Html.HiddenFor(model => EducationInfo[i].Id)
-                            <tr>
-                                <td>
-                                    @Html.LabelFor(model => EducationInfo[i].StartTime)
-                                    @Html.EditorFor(model => EducationInfo[i].StartTime)
-                                    @Html.ValidationMessageFor(model => EducationInfo[i].StartTime)
-                                </td>
-                                <td>
-                                    @Html.LabelFor(model => EducationInfo[i].EndTime)
-                                    @Html.EditorFor(model => EducationInfo[i].EndTime)
-                                    @Html.ValidationMessageFor(model => EducationInfo[i].EndTime)
-                                </td>
-                                <td>
-                                    @Html.LabelFor(model => EducationInfo[i].Education)
-                                    @Html.EditorFor(model => EducationInfo[i].Education)
-                                    @Html.ValidationMessageFor(model => EducationInfo[i].Education)
-                                </td>
-                                <td>
-                                    @Html.LabelFor(model => EducationInfo[i].IsDel)
-                                    @Html.CheckBoxFor(model => EducationInfo[i].IsDel)
-                                </td>
-                            </tr>
-                        </table>
-                    }
+                    <table>
+                        @Html.HiddenFor(model => EducationInfo[i].Id)
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].StartTime)
+                                @Html.EditorFor(model => EducationInfo[i].StartTime)
+                                @Html.ValidationMessageFor(model => EducationInfo[i].StartTime)
+                            </td>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].EndTime)
+                                @Html.EditorFor(model => EducationInfo[i].EndTime)
+                                @Html.ValidationMessageFor(model => EducationInfo[i].EndTime)
+                            </td>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].Education)
+                                @Html.EditorFor(model => EducationInfo[i].Education)
+                                @Html.ValidationMessageFor(model => EducationInfo[i].Education)
+                            </td>
+                            <td>
+                                @Html.LabelFor(model => EducationInfo[i].IsDel)
+                                @Html.CheckBoxFor(model => EducationInfo[i].IsDel)
+                            </td>
+                        </tr>
+                    </table>
                 }
             }
         </div>

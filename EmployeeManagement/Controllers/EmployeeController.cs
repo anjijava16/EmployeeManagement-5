@@ -69,7 +69,7 @@ namespace EmployeeManagement.Controllers
                 employee4update.Name = employee.Name;
                 employee4update.Age = employee.Age;
                 employee4update.Seniority = employee.Seniority;
-                if (employee.EducationInfo.Count > 0)
+                if (employee.EducationInfo != null)
                 {
                     var educationInfo = employee.EducationInfo.ToList();
                     int count = educationInfo.Count;
