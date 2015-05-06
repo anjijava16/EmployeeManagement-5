@@ -15,6 +15,7 @@
         <legend>Employee</legend>
 
         @Html.HiddenFor(model => model.Id)
+        @*@Html.HiddenFor(model => model.RowVersion)*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -52,6 +53,7 @@
                 {
                     <table>
                         @Html.HiddenFor(model => EducationInfo[i].Id)
+                        @*@Html.HiddenFor(model => EducationInfo[i].RowVersion)*@
                         <tr>
                             <td>
                                 @Html.LabelFor(model => EducationInfo[i].StartTime)

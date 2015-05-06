@@ -99,6 +99,7 @@ namespace EmployeeManagement.Controllers
                         }
                     }
                 }
+                //ModelState.AddModelError(string.Empty, "提示");
                 //db.Entry(employee).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
