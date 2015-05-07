@@ -11,21 +11,21 @@
     <legend>Employee</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+        @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Age)
+        @Html.DisplayNameFor(model => model.Age)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Age)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Seniority)
+        @Html.DisplayNameFor(model => model.Seniority)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Seniority)
@@ -35,9 +35,11 @@
         @Html.DisplayNameFor(model => model.EducationInfo)
     </div>
     <div>
-            @if (Model.EducationInfo != null)
+        @if (Model.EducationInfo != null)
+        {
+            foreach (var eduInfo in Model.EducationInfo)
             {
-                foreach (var eduInfo in Model.EducationInfo)
+                if (eduInfo.IsDel == false)
                 {
                     <table>
                         <tr>
@@ -54,10 +56,12 @@
                     </table>
                 }
             }
+        }
     </div>
 
 </fieldset>
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     <p>
         <input type="submit" value="Delete" /> |
