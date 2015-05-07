@@ -26,7 +26,7 @@ namespace EmployeeEducationInfo.Model
         public System.DateTime EndTime { get; set; }
 
         [Display(Name = "教育信息")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "教育信息不能为空")]
+        [Required(ErrorMessage = "教育信息不能为空")]
         [MaxLength(50)]
         public string Education { get; set; }
 
