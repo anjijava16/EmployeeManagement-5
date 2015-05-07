@@ -8,7 +8,6 @@ $(function () {
         $.ajax({
             type: "POST",
             data: { index: clickCount },
-            //dataType: "json",
             url: "/Employee/AddEducationInfo",
             success: function (data) {
                 $("#EducationInfoShow").append(data);

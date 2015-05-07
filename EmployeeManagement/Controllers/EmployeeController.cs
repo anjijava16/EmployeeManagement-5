@@ -112,7 +112,6 @@ namespace EmployeeManagement.Controllers
                             }
                         }
                     }
-                    //db.Entry(employee).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
