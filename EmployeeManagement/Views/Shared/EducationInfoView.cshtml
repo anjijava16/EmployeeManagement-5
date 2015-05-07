@@ -13,17 +13,17 @@
         <tr>
             <td>
                 @Html.LabelFor(model => model.StartTime)
-                <input type="date" name="@StartTimeName" />
+                @Html.TextBoxFor(model => model.StartTime, new { Name = StartTimeName, type = "date" })
                 @Html.ValidationMessageFor(model => model.StartTime)
             </td>
             <td>
                 @Html.LabelFor(model => model.EndTime)
-                <input type="date" name="@EndTimeName" />
+                @Html.TextBoxFor(model => model.EndTime, new { Name = EndTimeName, type = "date" })
                 @Html.ValidationMessageFor(model => model.EndTime)
             </td>
             <td>
                 @Html.LabelFor(model => model.Education)
-                <input type="text" name="@EducationName" />
+                @Html.TextBoxFor(model => model.Education, new { Name = EducationName })
                 @Html.ValidationMessageFor(model => model.Education)
             </td>
         </tr>
